@@ -2,7 +2,7 @@ package clinic_Database;
 
 /**
  *
- * @author dell
+ * @author D3MV48S2
  */
 import java.sql.*;
 import java.util.*;
