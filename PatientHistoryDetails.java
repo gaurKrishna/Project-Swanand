@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author anujp
+ * @author D3MV48S2
  */
 public class PatientHistoryDetails extends javax.swing.JFrame {
     

@@ -5,7 +5,7 @@ import javax.swing.*;
 
 /**
  *
- * @author anujp
+ * @author D3MV48S2
  */
 public class ViewPatient extends javax.swing.JFrame {
 
