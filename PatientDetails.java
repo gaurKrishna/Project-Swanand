@@ -7,7 +7,7 @@ package clinic_Database;
 
 /**
  *
- * @author anujp
+ * @author D3MV48S2
  */
 public class PatientDetails extends javax.swing.JFrame {
 

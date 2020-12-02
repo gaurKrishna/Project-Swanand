@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author anujp
+ * @author D3MV48S2
  */
 public class ViewDoctor extends javax.swing.JFrame {
 
