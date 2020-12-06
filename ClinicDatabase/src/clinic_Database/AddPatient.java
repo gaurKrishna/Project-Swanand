@@ -33,7 +33,6 @@ public class AddPatient extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
@@ -53,7 +52,6 @@ public class AddPatient extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -65,13 +63,6 @@ public class AddPatient extends javax.swing.JFrame {
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
             }
         });
 
@@ -97,7 +88,7 @@ public class AddPatient extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setText(" Street : ");
+        jLabel9.setText("Society :");
 
         jTextField13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
@@ -164,9 +155,6 @@ public class AddPatient extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Date of Birth : ");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setText(" Patient ID : ");
-
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -203,14 +191,12 @@ public class AddPatient extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(173, 173, 173)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -269,9 +255,7 @@ public class AddPatient extends javax.swing.JFrame {
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -290,10 +274,6 @@ public class AddPatient extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
@@ -356,7 +336,6 @@ public class AddPatient extends javax.swing.JFrame {
         date =  Integer.parseInt(DoB[0]);
         month = Integer.parseInt(DoB[1]);
         year = Integer.parseInt(DoB[2]);
-        String patientId = jTextField4.getText().trim();
         
         
         String houseNo = jTextField9.getText().trim();
@@ -366,18 +345,18 @@ public class AddPatient extends javax.swing.JFrame {
         String state = jTextField14.getText().trim();
         String pincode=jTextField16.getText().trim();
         
-        Patient pat = new Patient(Integer.parseInt(patientId),fname,mname,lname,Gender,Long.parseLong(Phone),date,month,year,houseNo,street,landmark,city,state,Integer.parseInt(pincode));
+        Patient pat = new Patient(fname,mname,lname,Gender,Long.parseLong(Phone),date,month,year,houseNo,street,landmark,city,state,Integer.parseInt(pincode));
         try{
             int id = this.currentDoctor.addNewPatient(pat);
             JOptionPane.showMessageDialog(null,"New patient added with id :-" + id);
-            new DoctorHome().setVisible(true);
+            new DoctorHome(currentDoctor).setVisible(true);
             this.dispose();
         }
         catch(SQLException sqle){
             JOptionPane.showMessageDialog(null,"Cannot add new Patient!");
             new AddPatient(currentDoctor).setVisible(true);
             this.dispose();
-            System.out.println("Sql exception occured");
+            System.out.println(sqle.getMessage());
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -436,7 +415,6 @@ public class AddPatient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField11;
@@ -445,7 +423,6 @@ public class AddPatient extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables

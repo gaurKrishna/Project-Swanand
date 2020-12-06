@@ -19,7 +19,7 @@ class Admin extends Staff{
                   String admin_houseno,String admin_society, String admin_landmark,String admin_city, String admin_state,int city_pin,int join_date,int join_month,
                   int join_year, String designation) 
     {
-    	super(admin_id, designation, join_date, join_month, admin_firstname, admin_middlename, admin_lastname, admin_gender, 
+    	super(admin_id, designation, join_date, join_month,join_year, admin_firstname, admin_middlename, admin_lastname, admin_gender, 
                             admin_phoneno, birth_date, birth_month, birth_year);
         
          this.admin_password = admin_password;
@@ -35,7 +35,7 @@ class Admin extends Staff{
         int doctorID;
         String url = "jdbc:mysql://localhost:3306/homeopathy";
         String username = "root";
-        String sqlpassword = "root";
+        String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
 
         String sql = "Insert Into doctors (firstName, middleName, lastName, gender, phoneNo, birthDate, birthMonth, birthYear, doctorPassword, licenseNo, joinDate, joinMonth, joinYear)" + 
@@ -67,7 +67,7 @@ class Admin extends Staff{
     public Doctor getdoctorDetails(int doctorId) throws SQLException{
     	String url = "jdbc:mysql://localhost:3306/homeopathy";
     	String username = "root";
-    	String sqlpassword = "root";
+    	String sqlpassword = "ad08";
     	Connection con = DriverManager.getConnection(url, username, sqlpassword);
     	String sql = "Select * from Doctors where idDoctors = " + doctorId;
     	Statement st = con.createStatement();
@@ -110,7 +110,7 @@ class Admin extends Staff{
     public void addAdressTable(int adminId) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/homeopathy";
         String username = "root";
-        String sqlpassword = "root";
+        String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         String sql = "Insert Into address (houseNo, society, landmark, city, state, pincode, userType, userid)" + "Values('" + this.adminAddress.houseNo + "', '" + this.adminAddress.society + "', '" + 
 						 this.adminAddress.landmark + "', '" + this.adminAddress.city + "', '" + this.adminAddress.state + "', '" + this.adminAddress.pincode + "', '" + 

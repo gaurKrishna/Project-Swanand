@@ -12,7 +12,7 @@ public class clinic_Database {
 	public static Admin adminLogin(int id, String password) throws SQLException, Exception{
 		String url = "jdbc:mysql://localhost:3306/homeopathy";
 		String username = "root";
-		String sqlpassword = "root";
+		String sqlpassword = "ad08";
 		Connection con = DriverManager.getConnection(url, username, sqlpassword);
 		System.out.println("Succesfull");
 		String sql = "Select * from Admins Where idAdmin = " + id;
@@ -53,7 +53,7 @@ public class clinic_Database {
 		
 		String url = "jdbc:mysql://localhost:3306/homeopathy";
 		String username = "root";
-		String sqlpassword = "root";
+		String sqlpassword = "ad08";
 		Connection con = DriverManager.getConnection(url, username, sqlpassword);
 		String sql = "Select * from Doctors Where idDoctors = " + id;
 		Statement st = con.createStatement();
@@ -92,7 +92,7 @@ public class clinic_Database {
         public static boolean checkDoctorExist(String licenseNo) throws SQLException{
             String url = "jdbc:mysql://localhost:3306/homeopathy";
             String username = "root";
-            String sqlpassword = "root";
+            String sqlpassword = "ad08";
             Connection con = DriverManager.getConnection(url, username, sqlpassword);
             String sql = "Select * from Doctors Where licenseNo = '" + licenseNo + "';";
             Statement st = con.createStatement();

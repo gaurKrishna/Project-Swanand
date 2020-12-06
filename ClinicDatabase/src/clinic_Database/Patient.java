@@ -44,7 +44,7 @@ class Patient extends User{
     public void addAdressTable(int patientId) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/homeopathy";
         String username = "root";
-        String sqlpassword = "root";
+        String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         String sql = "Insert Into address (houseNo, society, landmark, city, state, pincode, userType, userid)" + "Values('" + this.patientAddress.houseNo + "', '" + this.patientAddress.society + "', '" + 
 						 this.patientAddress.landmark + "', '" + this.patientAddress.city + "', '" + this.patientAddress.state + "', '" + this.patientAddress.pincode + "', '" + 

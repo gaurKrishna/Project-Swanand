@@ -154,7 +154,7 @@ public class Admin_login extends javax.swing.JFrame {
                 this.dispose();
              }
              catch(SQLException sqle){
-                 System.out.println("Sql exception occured");
+                 System.out.println(sqle.getMessage());
              }
              catch(Exception e){
                  JOptionPane.showMessageDialog(null, "Invalid login credentials");

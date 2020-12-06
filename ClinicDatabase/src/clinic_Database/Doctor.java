@@ -21,7 +21,7 @@ class Doctor extends Staff{
                   String doctor_houseno,String doctor_society, String doctor_landmark,String doctor_city, String doctor_state,int city_pin,
                   int join_date,int join_month,int join_year, String designation){
 
-                    super(doctor_id, designation, join_date, join_month, doctor_firstname, doctor_middlename, doctor_lastname, doctor_gender, 
+                    super(doctor_id, designation, join_date, join_month, join_year, doctor_firstname, doctor_middlename, doctor_lastname, doctor_gender, 
                             doctor_phoneno, birth_date, birth_month, birth_year);        
                     
                     this.licence_no = doctor_licenceno;
@@ -34,7 +34,7 @@ class Doctor extends Staff{
                   String doctor_houseno,String doctor_society, String doctor_landmark,String doctor_city, String doctor_state,int city_pin,
                   int join_date,int join_month,int join_year, String designation){
     	
-                    super(designation, join_date, join_month, doctor_firstname, doctor_middlename, doctor_lastname, doctor_gender, 
+                    super(designation, join_date, join_month, join_year, doctor_firstname, doctor_middlename, doctor_lastname, doctor_gender, 
                             doctor_phoneno, birth_date, birth_month, birth_year);
                    
                     this.licence_no = doctor_licenceno;
@@ -63,7 +63,7 @@ class Doctor extends Staff{
         int patientID;
         String url = "jdbc:mysql://localhost:3306/homeopathy";
         String username = "root";
-        String sqlpassword = "root";
+        String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         
         String sql = "Insert Into patients (firstName, middleName, lastName, gender, phoneNo, birthDate, birthMonth, birthYear)" + "Values('" + newPatient.firstName + "', '" + newPatient.middleName + "', '" + 
@@ -94,7 +94,7 @@ class Doctor extends Staff{
     public Patient getpatientDetails(int patientID) throws SQLException{
     	String url = "jdbc:mysql://localhost:3306/homeopathy";
 	String username = "root";
-	String sqlpassword = "root";
+	String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         String sql = "Select * from Patients Where patientsId = " + patientID;
         Statement st = con.createStatement();
@@ -133,7 +133,7 @@ class Doctor extends Staff{
     public ArrayList<Patient_History> getPatientHistory(Patient currentPatient) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/homeopathy";
 	String username = "root";
-	String sqlpassword = "root";
+	String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         String sql = "Select * from patienthistories Where patient = " + currentPatient.getPatientId();
         Statement st = con.createStatement();
@@ -158,7 +158,7 @@ class Doctor extends Staff{
     public void addPatientVisitDetails(Patient_History currentVisit) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/homeopathy";
         String username = "root";
-        String sqlpassword = "root";
+        String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         
         String sql = "Insert Into patienthistories(lastVisitDate, presentIllness, medication, patient) " + "Values('"+ currentVisit.getVisitDate() + "', '" + currentVisit.getPresent_Illness() + "', '" + 
@@ -173,7 +173,7 @@ class Doctor extends Staff{
     public void updatePatientAddress(Patient currentPatient) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/homeopathy";
         String username = "root";
-        String sqlpassword = "root";
+        String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         String sql = "Select addressId from address where userType = 'Patient' and userId = " + currentPatient.getPatientId();
         System.out.println(sql);
@@ -198,7 +198,7 @@ class Doctor extends Staff{
     public void addAdressTable(int doctorId) throws SQLException{
         String url = "jdbc:mysql://localhost:3306/homeopathy";
         String username = "root";
-        String sqlpassword = "root";
+        String sqlpassword = "ad08";
         Connection con = DriverManager.getConnection(url, username, sqlpassword);
         String sql = "Insert Into address (houseNo, society, landmark, city, state, pincode, userType, userid)" + "Values('" + this.doctorAddress.houseNo + "', '" + this.doctorAddress.society + "', '" + 
 						 this.doctorAddress.landmark + "', '" + this.doctorAddress.city + "', '" + this.doctorAddress.state + "', '" + this.doctorAddress.pincode + "', '" + 
