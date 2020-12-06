@@ -128,7 +128,7 @@ public class AddDoctor extends javax.swing.JFrame {
         jLabel7.setText(" Join Date : ");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setText(" Street : ");
+        jLabel9.setText("Society :");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText(" House No. : ");

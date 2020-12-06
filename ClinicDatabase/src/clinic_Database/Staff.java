@@ -11,7 +11,7 @@ abstract class Staff extends User{
     protected int join_month;
     protected int join_year;
 
-    public Staff(int employee_id, String designation, int join_date, int join_month, String firstName, String middleName, String lastName, String gender, long phoneNo, int birthDate, int birthMonth, int birthYear) {
+    public Staff(int employee_id, String designation, int join_date, int join_month, int join_year, String firstName, String middleName, String lastName, String gender, long phoneNo, int birthDate, int birthMonth, int birthYear) {
         super(firstName, middleName, lastName, gender, phoneNo, birthDate, birthMonth, birthYear);
         this.employee_id = employee_id;
         this.designation = designation;
@@ -20,7 +20,7 @@ abstract class Staff extends User{
         this.join_year = join_year;
     }
     
-    public Staff(String designation, int join_date, int join_month, String firstName, String middleName, String lastName, String gender, long phoneNo, int birthDate, int birthMonth, int birthYear) 
+    public Staff(String designation, int join_date, int join_month, int join_year, String firstName, String middleName, String lastName, String gender, long phoneNo, int birthDate, int birthMonth, int birthYear) 
     {
         super(firstName, middleName, lastName, gender, phoneNo, birthDate, birthMonth, birthYear); 
         this.designation = designation;
